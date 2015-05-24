@@ -16,6 +16,7 @@
 		9C51F50C1B11776F00B122E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */; };
 		9C51F5181B11776F00B122E2 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5171B11776F00B122E2 /* DiaryTests.m */; };
 		9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5221B118D0400B122E2 /* CoreDataStack.m */; };
+		9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5251B11923900B122E2 /* DiaryEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		9C51F5171B11776F00B122E2 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
 		9C51F5211B118D0400B122E2 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		9C51F5221B118D0400B122E2 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		9C51F5241B11923900B122E2 /* DiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryEntry.h; sourceTree = "<group>"; };
+		9C51F5251B11923900B122E2 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				9C51F4FD1B11776E00B122E2 /* AppDelegate.m */,
 				9C51F5021B11776F00B122E2 /* ViewController.h */,
 				9C51F5031B11776F00B122E2 /* ViewController.m */,
+				9C51F5241B11923900B122E2 /* DiaryEntry.h */,
+				9C51F5251B11923900B122E2 /* DiaryEntry.m */,
 				9C51F5051B11776F00B122E2 /* Main.storyboard */,
 				9C51F5081B11776F00B122E2 /* Images.xcassets */,
 				9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */,
@@ -229,6 +234,7 @@
 			files = (
 				9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */,
 				9C51F5011B11776F00B122E2 /* Diary.xcdatamodeld in Sources */,
+				9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */,
 				9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */,
 				9C51F5041B11776F00B122E2 /* ViewController.m in Sources */,
 				9C51F4FB1B11776E00B122E2 /* main.m in Sources */,
