@@ -15,6 +15,7 @@
 		9C51F5091B11776F00B122E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F5081B11776F00B122E2 /* Images.xcassets */; };
 		9C51F50C1B11776F00B122E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */; };
 		9C51F5181B11776F00B122E2 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5171B11776F00B122E2 /* DiaryTests.m */; };
+		9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5221B118D0400B122E2 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		9C51F5111B11776F00B122E2 /* DiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C51F5161B11776F00B122E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C51F5171B11776F00B122E2 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
+		9C51F5211B118D0400B122E2 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		9C51F5221B118D0400B122E2 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		9C51F4F71B11776E00B122E2 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				9C51F5211B118D0400B122E2 /* CoreDataStack.h */,
+				9C51F5221B118D0400B122E2 /* CoreDataStack.m */,
 				9C51F4FC1B11776E00B122E2 /* AppDelegate.h */,
 				9C51F4FD1B11776E00B122E2 /* AppDelegate.m */,
 				9C51F5021B11776F00B122E2 /* ViewController.h */,
@@ -222,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */,
 				9C51F5011B11776F00B122E2 /* Diary.xcdatamodeld in Sources */,
 				9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */,
 				9C51F5041B11776F00B122E2 /* ViewController.m in Sources */,
