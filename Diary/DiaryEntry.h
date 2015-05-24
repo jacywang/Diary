@@ -24,4 +24,6 @@ NS_ENUM(int16_t, DiaryEntryMood) {
 @property (nonatomic) int16_t mood;
 @property (nonatomic, retain) NSData * imageData;
 
+@property (nonatomic, readonly) NSString *sectionName;
+
 @end

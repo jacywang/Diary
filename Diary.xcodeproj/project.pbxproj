@@ -16,8 +16,10 @@
 		9C51F5181B11776F00B122E2 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5171B11776F00B122E2 /* DiaryTests.m */; };
 		9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5221B118D0400B122E2 /* CoreDataStack.m */; };
 		9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5251B11923900B122E2 /* DiaryEntry.m */; };
-		9C51F5291B1240FC00B122E2 /* NewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */; };
+		9C51F5291B1240FC00B122E2 /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5281B1240FC00B122E2 /* EntryViewController.m */; };
 		9C51F52C1B12495600B122E2 /* EntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */; };
+		9C51F52F1B12815A00B122E2 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F52E1B12815A00B122E2 /* NavigationController.m */; };
+		9C51F5321B12868600B122E2 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5311B12868600B122E2 /* EntryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +49,14 @@
 		9C51F5221B118D0400B122E2 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		9C51F5241B11923900B122E2 /* DiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryEntry.h; sourceTree = "<group>"; };
 		9C51F5251B11923900B122E2 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
-		9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEntryViewController.h; sourceTree = "<group>"; };
-		9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEntryViewController.m; sourceTree = "<group>"; };
+		9C51F5271B1240FC00B122E2 /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
+		9C51F5281B1240FC00B122E2 /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
 		9C51F52A1B12495600B122E2 /* EntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListTableViewController.h; sourceTree = "<group>"; };
 		9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListTableViewController.m; sourceTree = "<group>"; };
+		9C51F52D1B12815A00B122E2 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		9C51F52E1B12815A00B122E2 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		9C51F5301B12868600B122E2 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryCell.h; sourceTree = "<group>"; };
+		9C51F5311B12868600B122E2 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +107,12 @@
 				9C51F5051B11776F00B122E2 /* Main.storyboard */,
 				9C51F52A1B12495600B122E2 /* EntryListTableViewController.h */,
 				9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */,
-				9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */,
-				9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */,
+				9C51F5271B1240FC00B122E2 /* EntryViewController.h */,
+				9C51F5281B1240FC00B122E2 /* EntryViewController.m */,
+				9C51F5301B12868600B122E2 /* EntryCell.h */,
+				9C51F5311B12868600B122E2 /* EntryCell.m */,
+				9C51F52D1B12815A00B122E2 /* NavigationController.h */,
+				9C51F52E1B12815A00B122E2 /* NavigationController.m */,
 				9C51F5081B11776F00B122E2 /* Images.xcassets */,
 				9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */,
 				9C51F4FF1B11776E00B122E2 /* Diary.xcdatamodeld */,
@@ -239,9 +249,11 @@
 			files = (
 				9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */,
 				9C51F5011B11776F00B122E2 /* Diary.xcdatamodeld in Sources */,
-				9C51F5291B1240FC00B122E2 /* NewEntryViewController.m in Sources */,
+				9C51F5291B1240FC00B122E2 /* EntryViewController.m in Sources */,
+				9C51F5321B12868600B122E2 /* EntryCell.m in Sources */,
 				9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */,
 				9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */,
+				9C51F52F1B12815A00B122E2 /* NavigationController.m in Sources */,
 				9C51F4FB1B11776E00B122E2 /* main.m in Sources */,
 				9C51F52C1B12495600B122E2 /* EntryListTableViewController.m in Sources */,
 			);

@@ -8,8 +8,13 @@
 
 #import "EntryListTableViewController.h"
 #import "CoreDataStack.h"
+#import "DiaryEntry.h"
+#import "EntryViewController.h"
+#import "EntryCell.h"
 
-@interface EntryListTableViewController ()
+@interface EntryListTableViewController () <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchResultController;
 
 @end
 
@@ -23,6 +28,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.fetchResultController performFetch:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,35 +36,107 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
 - (NSFetchRequest *)entryListFetchRequest {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@DiaryEntry];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DiaryEntry"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     return fetchRequest;
 }
 
-/*
+- (NSFetchedResultsController *)fetchResultController {
+    if (_fetchResultController != nil) {
+        return _fetchResultController;
+    }
+    
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
+    _fetchResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:@"sectionName" cacheName:nil];
+    _fetchResultController.delegate = self;
+    return _fetchResultController;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"edit"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        UINavigationController *nav = segue.destinationViewController;
+        EntryViewController *entryViewController = (EntryViewController *)nav.topViewController;
+        entryViewController.entry = [self.fetchResultController objectAtIndexPath:indexPath];
+    }
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return self.fetchResultController.sections.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchResultController sections][section];
+    return [sectionInfo numberOfObjects];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    EntryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    DiaryEntry *entry = [self.fetchResultController objectAtIndexPath:indexPath];
+    [cell configureCellForEntry:entry];
     return cell;
 }
-*/
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchResultController sections][section];
+    return [sectionInfo name];
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiaryEntry *entry = [self.fetchResultController objectAtIndexPath:indexPath];
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    [[coreDataStack managedObjectContext] deleteObject:entry];
+    [coreDataStack saveContext];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiaryEntry *entry = [self.fetchResultController objectAtIndexPath:indexPath];
+    return [EntryCell heightForEntry:entry];
+}
+
+-(void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+    }
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
 
 /*
 // Override to support conditional editing of the table view.
