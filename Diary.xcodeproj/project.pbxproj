@@ -10,13 +10,13 @@
 		9C51F4FB1B11776E00B122E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F4FA1B11776E00B122E2 /* main.m */; };
 		9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F4FD1B11776E00B122E2 /* AppDelegate.m */; };
 		9C51F5011B11776F00B122E2 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F4FF1B11776E00B122E2 /* Diary.xcdatamodeld */; };
-		9C51F5041B11776F00B122E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5031B11776F00B122E2 /* ViewController.m */; };
 		9C51F5071B11776F00B122E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F5051B11776F00B122E2 /* Main.storyboard */; };
 		9C51F5091B11776F00B122E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F5081B11776F00B122E2 /* Images.xcassets */; };
 		9C51F50C1B11776F00B122E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */; };
 		9C51F5181B11776F00B122E2 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5171B11776F00B122E2 /* DiaryTests.m */; };
 		9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5221B118D0400B122E2 /* CoreDataStack.m */; };
 		9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5251B11923900B122E2 /* DiaryEntry.m */; };
+		9C51F5291B1240FC00B122E2 /* NewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +36,6 @@
 		9C51F4FC1B11776E00B122E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9C51F4FD1B11776E00B122E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9C51F5001B11776F00B122E2 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
-		9C51F5021B11776F00B122E2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9C51F5031B11776F00B122E2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9C51F5061B11776F00B122E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C51F5081B11776F00B122E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C51F50B1B11776F00B122E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +46,8 @@
 		9C51F5221B118D0400B122E2 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		9C51F5241B11923900B122E2 /* DiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryEntry.h; sourceTree = "<group>"; };
 		9C51F5251B11923900B122E2 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
+		9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEntryViewController.h; sourceTree = "<group>"; };
+		9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +93,11 @@
 				9C51F5221B118D0400B122E2 /* CoreDataStack.m */,
 				9C51F4FC1B11776E00B122E2 /* AppDelegate.h */,
 				9C51F4FD1B11776E00B122E2 /* AppDelegate.m */,
-				9C51F5021B11776F00B122E2 /* ViewController.h */,
-				9C51F5031B11776F00B122E2 /* ViewController.m */,
 				9C51F5241B11923900B122E2 /* DiaryEntry.h */,
 				9C51F5251B11923900B122E2 /* DiaryEntry.m */,
 				9C51F5051B11776F00B122E2 /* Main.storyboard */,
+				9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */,
+				9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */,
 				9C51F5081B11776F00B122E2 /* Images.xcassets */,
 				9C51F50A1B11776F00B122E2 /* LaunchScreen.xib */,
 				9C51F4FF1B11776E00B122E2 /* Diary.xcdatamodeld */,
@@ -234,9 +234,9 @@
 			files = (
 				9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */,
 				9C51F5011B11776F00B122E2 /* Diary.xcdatamodeld in Sources */,
+				9C51F5291B1240FC00B122E2 /* NewEntryViewController.m in Sources */,
 				9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */,
 				9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */,
-				9C51F5041B11776F00B122E2 /* ViewController.m in Sources */,
 				9C51F4FB1B11776E00B122E2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
