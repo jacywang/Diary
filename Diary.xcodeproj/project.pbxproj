@@ -17,6 +17,7 @@
 		9C51F5231B118D0400B122E2 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5221B118D0400B122E2 /* CoreDataStack.m */; };
 		9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5251B11923900B122E2 /* DiaryEntry.m */; };
 		9C51F5291B1240FC00B122E2 /* NewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */; };
+		9C51F52C1B12495600B122E2 /* EntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		9C51F5251B11923900B122E2 /* DiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryEntry.m; sourceTree = "<group>"; };
 		9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEntryViewController.h; sourceTree = "<group>"; };
 		9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEntryViewController.m; sourceTree = "<group>"; };
+		9C51F52A1B12495600B122E2 /* EntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListTableViewController.h; sourceTree = "<group>"; };
+		9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				9C51F5241B11923900B122E2 /* DiaryEntry.h */,
 				9C51F5251B11923900B122E2 /* DiaryEntry.m */,
 				9C51F5051B11776F00B122E2 /* Main.storyboard */,
+				9C51F52A1B12495600B122E2 /* EntryListTableViewController.h */,
+				9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */,
 				9C51F5271B1240FC00B122E2 /* NewEntryViewController.h */,
 				9C51F5281B1240FC00B122E2 /* NewEntryViewController.m */,
 				9C51F5081B11776F00B122E2 /* Images.xcassets */,
@@ -238,6 +243,7 @@
 				9C51F5261B11923900B122E2 /* DiaryEntry.m in Sources */,
 				9C51F4FE1B11776E00B122E2 /* AppDelegate.m in Sources */,
 				9C51F4FB1B11776E00B122E2 /* main.m in Sources */,
+				9C51F52C1B12495600B122E2 /* EntryListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
