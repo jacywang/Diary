@@ -124,17 +124,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-St-8RD">
-                                <rect key="frame" x="16" y="72" width="250" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="vSg-Of-ZfX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMx-Ol-SOb">
-                                <rect key="frame" x="16" y="100.5" width="568" height="200"/>
+                                <rect key="frame" x="104" y="100" width="480" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="jrb-qe-vdB"/>
@@ -142,12 +133,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-St-8RD">
+                                <rect key="frame" x="104" y="72" width="250" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="vSg-Of-ZfX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edz-jM-Xyg">
+                                <rect key="frame" x="16" y="72" width="80" height="80"/>
+                                <state key="normal" image="icn_noimage">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imageButtonPressed:" destination="OUE-JO-6hh" eventType="touchUpInside" id="Tj1-fq-8Nr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aMx-Ol-SOb" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="K3N-0h-u7g"/>
+                            <constraint firstItem="aMx-Ol-SOb" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="104" id="K3N-0h-u7g"/>
                             <constraint firstItem="aMx-Ol-SOb" firstAttribute="top" secondItem="Fp5-St-8RD" secondAttribute="bottom" constant="8" id="c6m-bX-unH"/>
-                            <constraint firstItem="Fp5-St-8RD" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="gAW-Yf-l1h"/>
+                            <constraint firstItem="Fp5-St-8RD" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="104" id="gAW-Yf-l1h"/>
                             <constraint firstAttribute="trailing" secondItem="aMx-Ol-SOb" secondAttribute="trailing" constant="16" id="vFm-kI-e7i"/>
                             <constraint firstItem="Fp5-St-8RD" firstAttribute="top" secondItem="eEM-cZ-Moq" secondAttribute="bottom" constant="8" id="ygb-NR-RIf"/>
                         </constraints>
@@ -170,6 +179,7 @@
                         <outlet property="badButton" destination="bms-rj-vWj" id="f8h-aY-7gC"/>
                         <outlet property="dateLabel" destination="Fp5-St-8RD" id="s7H-Q7-gH6"/>
                         <outlet property="goodButton" destination="4cb-wJ-Bjo" id="fIr-w4-M5F"/>
+                        <outlet property="imageButton" destination="edz-jM-Xyg" id="f6T-y3-d6a"/>
                         <outlet property="textView" destination="aMx-Ol-SOb" id="uEL-Sq-Mu7"/>
                     </connections>
                 </viewController>
@@ -273,6 +283,7 @@
         <image name="icn_average_lrg" width="15" height="15"/>
         <image name="icn_bad_lrg" width="15" height="15"/>
         <image name="icn_good_lrg" width="15" height="15"/>
+        <image name="icn_noimage" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qm1-Qy-oB2"/>

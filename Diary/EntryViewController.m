@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIView *accessoryView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 @end
 
@@ -43,6 +44,12 @@
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
     self.textView.inputAccessoryView = self.accessoryView;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.textView becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,6 +118,9 @@
 }
 - (IBAction)goodButtonPressed:(UIButton *)sender {
     self.pickedMood = DiaryEntryMoodGood;
+}
+
+- (IBAction)imageButtonPressed:(UIButton *)sender {
 }
 
 @end
