@@ -124,23 +124,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOj-Mg-DZm">
-                                <rect key="frame" x="16" y="112" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-St-8RD">
-                                <rect key="frame" x="16" y="72" width="265" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-St-8RD">
+                                <rect key="frame" x="16" y="72" width="250" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="vSg-Of-ZfX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMx-Ol-SOb">
+                                <rect key="frame" x="16" y="100.5" width="568" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="jrb-qe-vdB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="U3K-3e-Ch2"/>
-                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="top" secondItem="eEM-cZ-Moq" secondAttribute="bottom" constant="48" id="sJC-ok-xtG"/>
-                            <constraint firstAttribute="trailing" secondItem="NOj-Mg-DZm" secondAttribute="trailing" constant="16" id="wyM-7l-65s"/>
+                            <constraint firstItem="aMx-Ol-SOb" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="K3N-0h-u7g"/>
+                            <constraint firstItem="aMx-Ol-SOb" firstAttribute="top" secondItem="Fp5-St-8RD" secondAttribute="bottom" constant="8" id="c6m-bX-unH"/>
+                            <constraint firstItem="Fp5-St-8RD" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="gAW-Yf-l1h"/>
+                            <constraint firstAttribute="trailing" secondItem="aMx-Ol-SOb" secondAttribute="trailing" constant="16" id="vFm-kI-e7i"/>
+                            <constraint firstItem="Fp5-St-8RD" firstAttribute="top" secondItem="eEM-cZ-Moq" secondAttribute="bottom" constant="8" id="ygb-NR-RIf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sLl-xV-lqR">
@@ -161,7 +170,7 @@
                         <outlet property="badButton" destination="bms-rj-vWj" id="f8h-aY-7gC"/>
                         <outlet property="dateLabel" destination="Fp5-St-8RD" id="s7H-Q7-gH6"/>
                         <outlet property="goodButton" destination="4cb-wJ-Bjo" id="fIr-w4-M5F"/>
-                        <outlet property="textField" destination="NOj-Mg-DZm" id="kZg-pt-ULi"/>
+                        <outlet property="textView" destination="aMx-Ol-SOb" id="uEL-Sq-Mu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uw-0f-R7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
