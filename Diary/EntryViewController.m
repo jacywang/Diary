@@ -9,10 +9,13 @@
 #import "EntryViewController.h"
 #import "CoreDataStack.h"
 #import "DiaryEntry.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface EntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface EntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) UIImage *pickedImage;
+@property (nonatomic, strong) NSString *location;
 @property (nonatomic, assign) enum DiaryEntryMood pickedMood;
 @property (weak, nonatomic) IBOutlet UIButton *goodButton;
 @property (weak, nonatomic) IBOutlet UIButton *averageButton;
@@ -38,6 +41,7 @@
     } else {
         self.pickedMood = DiaryEntryMoodGood;
         date = [NSDate date];
+        [self loadLocation];
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -66,6 +70,7 @@
     newEntry.date = [[NSDate date] timeIntervalSince1970];
     newEntry.mood = self.pickedMood;
     newEntry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
+    newEntry.location = self.location;
     [coreDataStack saveContext];
 }
 
@@ -180,5 +185,22 @@
     }
 }
 
+- (void)loadLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = 1000;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.locationManager stopUpdatingLocation];
+    CLLocation *location = [locations firstObject];
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placeMark = [placemarks firstObject];
+        self.location = placeMark.name;
+    }];
+}
 
 @end
