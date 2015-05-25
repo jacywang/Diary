@@ -20,6 +20,7 @@
 		9C51F52C1B12495600B122E2 /* EntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F52B1B12495600B122E2 /* EntryListTableViewController.m */; };
 		9C51F52F1B12815A00B122E2 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F52E1B12815A00B122E2 /* NavigationController.m */; };
 		9C51F5321B12868600B122E2 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C51F5311B12868600B122E2 /* EntryCell.m */; };
+		9C51F5341B12CA9B00B122E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C51F5331B12CA9B00B122E2 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9C51F52E1B12815A00B122E2 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		9C51F5301B12868600B122E2 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryCell.h; sourceTree = "<group>"; };
 		9C51F5311B12868600B122E2 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryCell.m; sourceTree = "<group>"; };
+		9C51F5331B12CA9B00B122E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C51F5341B12CA9B00B122E2 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +83,7 @@
 		9C51F4EC1B11776E00B122E2 = {
 			isa = PBXGroup;
 			children = (
+				9C51F5331B12CA9B00B122E2 /* QuartzCore.framework */,
 				9C51F4F71B11776E00B122E2 /* Diary */,
 				9C51F5141B11776F00B122E2 /* DiaryTests */,
 				9C51F4F61B11776E00B122E2 /* Products */,

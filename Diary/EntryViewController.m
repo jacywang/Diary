@@ -10,8 +10,9 @@
 #import "CoreDataStack.h"
 #import "DiaryEntry.h"
 
-@interface EntryViewController ()
+@interface EntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (nonatomic, strong) UIImage *pickedImage;
 @property (nonatomic, assign) enum DiaryEntryMood pickedMood;
 @property (weak, nonatomic) IBOutlet UIButton *goodButton;
 @property (weak, nonatomic) IBOutlet UIButton *averageButton;
@@ -44,6 +45,7 @@
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
     self.textView.inputAccessoryView = self.accessoryView;
+    self.imageButton.layer.cornerRadius = CGRectGetWidth(self.imageButton.frame) / 2.0f;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -63,6 +65,7 @@
     newEntry.body = self.textView.text;
     newEntry.date = [[NSDate date] timeIntervalSince1970];
     newEntry.mood = self.pickedMood;
+    newEntry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     [coreDataStack saveContext];
 }
 
@@ -73,6 +76,7 @@
 - (void)updateDiaryEntry {
     self.entry.body = self.textView.text;
     self.entry.mood = self.pickedMood;
+    self.entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
     [coreDataStack saveContext];
 }
@@ -121,6 +125,60 @@
 }
 
 - (IBAction)imageButtonPressed:(UIButton *)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self promptForSource];
+    } else {
+        [self promptForPhotoRoll];
+    }
 }
+
+- (void)promptForSource {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Image Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Roll", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        if (buttonIndex != actionSheet.firstOtherButtonIndex) {
+            [self promptForPhotoRoll];
+        } else {
+            [self promptForCamera];
+        }
+    }
+}
+
+- (void)promptForCamera {
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)promptForPhotoRoll {
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.pickedImage = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)setPickedImage:(UIImage *)pickedImage {
+    _pickedImage = pickedImage;
+    if (_pickedImage == nil) {
+        [self.imageButton setImage:[UIImage imageNamed:@"icn_noimage"] forState:UIControlStateNormal];
+    } else {
+        [self.imageButton setImage:_pickedImage forState:UIControlStateNormal];
+    }
+}
+
 
 @end
