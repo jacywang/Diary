@@ -125,16 +125,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOj-Mg-DZm">
-                                <rect key="frame" x="16" y="72" width="568" height="30"/>
+                                <rect key="frame" x="16" y="112" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-St-8RD">
+                                <rect key="frame" x="16" y="72" width="265" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="top" secondItem="eEM-cZ-Moq" secondAttribute="bottom" constant="8" id="HGj-Uo-ruf"/>
-                            <constraint firstAttribute="trailing" secondItem="NOj-Mg-DZm" secondAttribute="trailing" constant="16" id="dId-9r-zrd"/>
-                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="szw-he-BQo"/>
+                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="leading" secondItem="9E1-5f-Zbi" secondAttribute="leading" constant="16" id="U3K-3e-Ch2"/>
+                            <constraint firstItem="NOj-Mg-DZm" firstAttribute="top" secondItem="eEM-cZ-Moq" secondAttribute="bottom" constant="48" id="sJC-ok-xtG"/>
+                            <constraint firstAttribute="trailing" secondItem="NOj-Mg-DZm" secondAttribute="trailing" constant="16" id="wyM-7l-65s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sLl-xV-lqR">
@@ -150,10 +156,72 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accessoryView" destination="Bxs-Oh-D2W" id="tIe-HD-ELO"/>
+                        <outlet property="averageButton" destination="k9c-zf-sPw" id="QYx-4o-Vny"/>
+                        <outlet property="badButton" destination="bms-rj-vWj" id="f8h-aY-7gC"/>
+                        <outlet property="dateLabel" destination="Fp5-St-8RD" id="s7H-Q7-gH6"/>
+                        <outlet property="goodButton" destination="4cb-wJ-Bjo" id="fIr-w4-M5F"/>
                         <outlet property="textField" destination="NOj-Mg-DZm" id="kZg-pt-ULi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uw-0f-R7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxs-Oh-D2W">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bms-rj-vWj">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                            <color key="backgroundColor" red="0.8784313725490196" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Bad" image="icn_bad_lrg">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="badButtonPressed:" destination="OUE-JO-6hh" eventType="touchUpInside" id="4Ac-cD-0Rx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9c-zf-sPw">
+                            <rect key="frame" x="200" y="0.0" width="200" height="35"/>
+                            <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Average" image="icn_average_lrg">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="averageButtonPressed:" destination="OUE-JO-6hh" eventType="touchUpInside" id="CSG-wP-uXv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cb-wJ-Bjo">
+                            <rect key="frame" x="400" y="0.0" width="200" height="35"/>
+                            <color key="backgroundColor" red="0.49411764705882355" green="0.60392156862745094" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Good" image="icn_good_lrg">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="goodButtonPressed:" destination="OUE-JO-6hh" eventType="touchUpInside" id="qJP-sn-93c"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" secondItem="k9c-zf-sPw" secondAttribute="height" id="1T0-qs-SQ7"/>
+                        <constraint firstItem="bms-rj-vWj" firstAttribute="width" secondItem="4cb-wJ-Bjo" secondAttribute="width" id="1ri-Tr-P2I"/>
+                        <constraint firstAttribute="centerY" secondItem="bms-rj-vWj" secondAttribute="centerY" id="8fU-wc-tzb"/>
+                        <constraint firstAttribute="centerY" secondItem="4cb-wJ-Bjo" secondAttribute="centerY" id="CLc-Dd-Rnc"/>
+                        <constraint firstItem="bms-rj-vWj" firstAttribute="trailing" secondItem="k9c-zf-sPw" secondAttribute="leading" id="Paa-lE-LtW"/>
+                        <constraint firstAttribute="trailing" secondItem="4cb-wJ-Bjo" secondAttribute="trailing" id="V2v-72-3Fl"/>
+                        <constraint firstItem="bms-rj-vWj" firstAttribute="height" secondItem="Bxs-Oh-D2W" secondAttribute="height" id="Zvd-B9-F6g"/>
+                        <constraint firstItem="4cb-wJ-Bjo" firstAttribute="leading" secondItem="k9c-zf-sPw" secondAttribute="trailing" id="Zym-G4-kHO"/>
+                        <constraint firstItem="4cb-wJ-Bjo" firstAttribute="height" secondItem="Bxs-Oh-D2W" secondAttribute="height" id="bGY-1j-4DV"/>
+                        <constraint firstItem="bms-rj-vWj" firstAttribute="width" secondItem="k9c-zf-sPw" secondAttribute="width" id="dEx-06-Ldc"/>
+                        <constraint firstAttribute="height" constant="35" id="ehb-5m-W6M"/>
+                        <constraint firstAttribute="centerY" secondItem="k9c-zf-sPw" secondAttribute="centerY" id="lL1-qp-6Y1"/>
+                        <constraint firstItem="bms-rj-vWj" firstAttribute="leading" secondItem="Bxs-Oh-D2W" secondAttribute="leading" id="vTC-iY-jns"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1885" y="-51"/>
         </scene>
@@ -192,6 +260,11 @@
             <point key="canvasLocation" x="1177" y="-51"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icn_average_lrg" width="15" height="15"/>
+        <image name="icn_bad_lrg" width="15" height="15"/>
+        <image name="icn_good_lrg" width="15" height="15"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qm1-Qy-oB2"/>
     </inferredMetricsTieBreakers>

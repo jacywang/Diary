@@ -45,7 +45,7 @@
     self.locationLabel.text = entry.location;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE, MMMMM d yyyy"];
+    [dateFormatter setDateFormat:@"EEEE MMMM d, yyyy"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.date];
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
