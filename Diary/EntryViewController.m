@@ -189,6 +189,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = 1000;
+    [self.locationManager requestWhenInUseAuthorization];
     
     [self.locationManager startUpdatingLocation];
 }
